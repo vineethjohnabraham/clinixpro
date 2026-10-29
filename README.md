@@ -9,8 +9,10 @@ There is no server. Each visitor's data is saved only in their own browser (loca
 ## Pages
 - `#/welcome`: ClinixPro home (patients and clinics)
 - `#/find`: find a doctor on the map
-- `#/login`: clinic sign-in (one-click demo accounts, password `demo1234`)
-- `#/inventory`: stock room for doctors, front desk and admins (after signing in)
+- `/<clinic-name>` (for example `/relief-dental`): a clinic's own page
+- `#/login`: sign-in. Platform admin `admin@clinixpro.com`; the demo clinic has one-click accounts (password `demo1234`)
+- `#/platform`: platform admin, where clinics are added
+- `#/clinic-admin`: a clinic's admin page; `#/inventory`: its stock room
 
 ## Publish on GitHub Pages
 1. Create a new repository on GitHub (for example `clinixpro`).
@@ -19,4 +21,6 @@ There is no server. Each visitor's data is saved only in their own browser (loca
    pick branch `main` and folder `/ (root)`, then **Save**.
 4. After a minute the site is live at `https://<your-username>.github.io/<repository-name>/`.
 
-It also runs from any static web host, or by opening it through a local web server.
+Clinic addresses such as `/relief-dental` work because GitHub Pages serves `404.html` (a copy of the app) for unknown
+paths, and the app forwards them to `#/relief-dental`. With a custom domain the address is `clinixpro.com/relief-dental`.
+Any static host that serves `404.html` for unknown paths works the same way.

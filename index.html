@@ -2,6 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      // Clinic web addresses: clinixpro.com/<clinic-name> -> clinixpro.com/#/<clinic-name>.
+      // On GitHub Pages an unknown path serves 404.html (a copy of this page), so this also runs there.
+      // Project sites live under /<repository>/, so that first folder is kept.
+      ;(function () {
+        if (location.hash.length > 1) return
+        var root = /\.github\.io$/.test(location.host) ? '/' + (location.pathname.split('/')[1] || '') + '/' : '/'
+        root = root.replace('//', '/')
+        var rest = location.pathname.slice(root.length).replace(/index\.html$/, '').replace(/\/+$/, '')
+        if (rest && !/\./.test(rest) && rest.indexOf('/') === -1) location.replace(root + '#/' + rest.toLowerCase())
+      })()
+    </script>
     <link rel="icon" type="image/svg+xml" href="./clinixpro.svg" />
     <meta name="theme-color" content="#0d9488" />
     <meta name="description" content="ClinixPro by RYDE Labs: clinic workspace and doctor finder for the Middle East and India." />
@@ -10,8 +22,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="./assets/index-C4U0nTt1.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-4HHcGbjK.css">
+    <script type="module" crossorigin src="./assets/index-CEes040O.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-C_OV7hGY.css">
   </head>
   <body>
     <div id="root"></div>
